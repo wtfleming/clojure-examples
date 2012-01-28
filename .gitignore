@@ -1,0 +1,30 @@
+.DS_Store
+
+# logs
+derby.log
+
+# eclipse conf file
+.settings
+.classpath
+.project
+.manager
+.externalToolBuilders
+
+
+target/
+.classpath
+.project
+.settings
+
+*/bin
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea
+
+
+*.class
+
+
