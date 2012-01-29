@@ -1,13 +1,12 @@
 (ns lucene.core
-  (:gen-class))
- 
-(import org.apache.lucene.analysis.standard.StandardAnalyzer) 
-(import '(org.apache.lucene.document Document Field Field$Store Field$Index))
-(import '(org.apache.lucene.index IndexWriter IndexWriterConfig IndexReader))
-(import org.apache.lucene.queryParser.QueryParser)
-(import '(org.apache.lucene.search Searcher IndexSearcher Query TopDocs))
-(import org.apache.lucene.store.RAMDirectory)
-(import org.apache.lucene.util.Version)
+  (:gen-class)
+  (import [org.apache.lucene.analysis.standard StandardAnalyzer]
+          [org.apache.lucene.document Document Field Field$Store Field$Index]
+          [org.apache.lucene.index IndexWriter IndexWriterConfig IndexReader]
+          [org.apache.lucene.queryParser QueryParser]
+          [org.apache.lucene.search Searcher IndexSearcher Query TopDocs]
+          [org.apache.lucene.store RAMDirectory]
+          [org.apache.lucene.util Version]))
 
 
 (def LUCENE_VERSION (Version/LUCENE_35))

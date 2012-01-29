@@ -1,8 +1,8 @@
 (ns twitter.core
-  (:gen-class))
+  (:gen-class)
+  (:import [twitter4j TwitterFactory Query QueryResult Tweet]
+           [twitter4j.auth AccessToken]))
 
-(import '(twitter4j TwitterFactory Query QueryResult Tweet))
-(import '(twitter4j.auth AccessToken))
 
 ; Twitter4j Search returns a list of tweets
 (defn formatTweetsForOutput [tweets]
