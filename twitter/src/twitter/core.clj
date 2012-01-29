@@ -42,12 +42,12 @@
 
 
 (defn -main []
-;  (def results (search "clojure"))
-;  (def output (formatTweetsForOutput results))
-;  (doseq [tweet output] (println tweet))
-
-  (def results (getHomeTimeline))
-  (def output (formatStatusesForOutput results))
+  (def results (search "clojure"))
+  (def output (formatTweetsForOutput results))
   (doseq [tweet output] (println tweet))
+
+;  (def results (getHomeTimeline))
+;  (def output (formatStatusesForOutput results))
+;  (doseq [tweet output] (println tweet))
   
   )
