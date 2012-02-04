@@ -1,0 +1,16 @@
+# web-compojure
+
+FIXME: write description
+
+## Usage
+Run with either
+lein ring server
+lein ring server-headless
+
+
+
+## License
+
+Copyright (C) 2012 FIXME
+
+Distributed under the Eclipse Public License, the same as Clojure.
