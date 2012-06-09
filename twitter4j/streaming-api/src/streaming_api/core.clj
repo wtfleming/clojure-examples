@@ -3,7 +3,8 @@
   (:import [twitter4j
               StatusListener TwitterStream TwitterStreamFactory
               FilterQuery]
-           [twitter4j.conf ConfigurationBuilder Configuration]))
+           [twitter4j.conf ConfigurationBuilder Configuration]
+           [twitter4j.json DataObjectFactory]))
 
 ;(set! *warn-on-reflection* true)
 
@@ -13,13 +14,25 @@
   (let [cb (ConfigurationBuilder.)]
     (.setUser cb "YOUR-USERNAME")
     (.setPassword cb "YOUR-PASSWORD")
+
+     ; Uncomment if you want access to the raw json
+     ;(.setJSONStoreEnabled cb true)
+
     (.build cb)))
+
 
 
 (defn status-listener []
   "Implementation of twitter4j's StatusListener interface"
   (proxy [StatusListener] []
-    (onStatus [^twitter4j.Status status] (println (.getText status)))
+
+    (onStatus [^twitter4j.Status status]
+      (println (.getText status))
+      ; How to get raw json - make sure it's uncommented in the config
+      ; or else will print nil.
+      ;(println (DataObjectFactory/getRawJSON status)
+    )
+
     (onException [^java.lang.Exception e] (.printStackTrace e))
     (onDeletionNotice [^twitter4j.StatusDeletionNotice statusDeletionNotice] ())
     (onScrubGeo [userId upToStatusId] ())
