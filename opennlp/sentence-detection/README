@@ -1,0 +1,13 @@
+# OpenNLP examples
+
+To run you will need to download the models from http://opennlp.sourceforge.net/models-1.5/
+
+## Usage
+
+FIXME: write
+
+## License
+
+Copyright (C) 2012 FIXME
+
+Distributed under the Eclipse Public License, the same as Clojure.
