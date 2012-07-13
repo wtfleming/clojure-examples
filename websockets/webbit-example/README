@@ -2,6 +2,9 @@
 
 Websocket example. Sends a message to the server, and we return it uppercased
 
+Originally based on http://blog.jayfields.com/2011/02/clojure-web-socket-introduction.html
+
+
 ## Usage
 
 lein run
