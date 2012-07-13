@@ -1,10 +1,13 @@
 # webbit-example
 
-FIXME: write description
+Websocket example. Sends a message to the server, and we return it uppercased
 
 ## Usage
 
-FIXME: write
+lein run
+Go to http://localhost:8080
+Enter some text in the form 
+
 
 ## License
 
