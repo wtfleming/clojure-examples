@@ -8,6 +8,8 @@
 (defroutes main-routes
   (GET "/" [] "<h1>Hello World Wide Web!</h1>")
   (GET "/hola" [] (html [:h1 "Hola World"]))
+  (GET "/hola/:id" [id]
+    (str "<h1>Hi " id "</h1>"))
 
   (GET "/hola.json" [] {:status 200
                         :headers {"Content-Type" "application/json"}
