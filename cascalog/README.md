@@ -1,0 +1,74 @@
+# cascalog-examples
+
+Examples for using cascalog
+
+
+## Usage
+
+$ lein repl
+
+
+(use 'cascalog_examples.read_file)
+
+(print-file "data/foo.out")
+(print-csv-file "data/state-abbreviation.csv")
+
+
+
+
+(use 'cascalog_examples.us_state_queries)
+
+(state-abbreviation-query)
+RESULTS 
+-----------------------
+AL      Alabama
+AK      Alaska
+AZ      Arizona
+AR      Arkansas
+...
+-----------------------
+
+
+(state-starting-with-query "C")
+RESULTS
+-----------------------
+California
+Colorado
+Connecticut
+-----------------------
+
+
+(count-state-starting-with-query "C")
+RESULTS
+-----------------------
+3
+-----------------------
+
+
+(join-state-capital-query)
+RESULTS
+-----------------------
+Alaska  Juneau
+Alabama Montgomery
+Arkansas        Little Rock
+Arizona Phoenix
+...
+-----------------------
+
+
+(state-first-letter-count)
+RESULTS
+-----------------------
+Comparator
+A       4
+C       3
+D       2
+F       1
+...
+-----------------------
+
+## License
+
+Copyright © 2013 William Fleming
+
+Distributed under the Eclipse Public License, the same as Clojure.
