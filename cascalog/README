@@ -67,6 +67,17 @@ F       1
 ...
 -----------------------
 
+(state-abbreviation-json-query) 
+RESULTS
+-----------------------
+AL      Alabama
+AK      Alaska
+AZ      Arizona
+AR      Arkansas
+...
+-----------------------
+
+
 ## License
 
 Copyright © 2013 William Fleming

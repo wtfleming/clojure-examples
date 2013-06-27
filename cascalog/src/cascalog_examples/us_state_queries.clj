@@ -1,10 +1,12 @@
 (ns cascalog_examples.us_state_queries
   (:use cascalog.api)
   (:require [clojure.data.csv :as csv]
+            [clj-json [core :as json]]
             [cascalog.ops :as ops]))
 
 
 (def state-abbreviation-path "data/state-abbreviation.csv")
+(def state-abbreviation-json-path "data/state-abbreviation.json")
 (def capital-abbreviation-path "data/capital-abbreviation.csv")
 
 
@@ -19,6 +21,18 @@
       [?abbr ?state]
       (file-tap ?line)
       (csv-parser ?line :> ?state ?abbr))))
+
+(defn json-parser [line]
+  (map (json/parse-string line) ["full" "abbr"]))
+
+(defn state-abbreviation-json-query
+  []
+  (let [file-tap (lfs-textline state-abbreviation-json-path)]
+    (?<-
+      (stdout)
+      [?abbr ?state]
+      (file-tap ?line)
+      (json-parser ?line :> ?state ?abbr))))
 
 
 (deffilterop starts-with? [^String s prefix] (.startsWith s prefix))
