@@ -2,5 +2,5 @@
   :description "FIXME: write description"
   :dependencies [
     [org.clojure/clojure "1.5.1"]
-    [incanter "1.3.0"]]
+    [incanter "1.5.4"]]
   :main incanterexample.core)

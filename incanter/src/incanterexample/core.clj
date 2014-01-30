@@ -4,6 +4,4 @@
 
 
 (defn -main []
-  (view (histogram (sample-normal 1000)))
-)
-
+  (view (histogram (sample-normal 1000))))
