@@ -2,5 +2,5 @@
   :description "FIXME: write description"
   :dependencies [
     [org.clojure/clojure "1.5.1"]
-    [org.apache.tika/tika-core "1.1"]]
+    [org.apache.tika/tika-core "1.4"]]
   :main tika.core)
