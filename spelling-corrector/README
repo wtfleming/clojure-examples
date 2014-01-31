@@ -1,0 +1,13 @@
+# Spelling corrector
+
+Spelling corrector influenced by http://norvig.com/spell-correct.html
+
+## Usage
+
+FIXME: write
+
+## License
+
+Copyright (C) 2012 FIXME
+
+Distributed under the Eclipse Public License, the same as Clojure.
