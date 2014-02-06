@@ -1,9 +1,11 @@
 # Spelling corrector
 
 Spelling corrector influenced by http://norvig.com/spell-correct.html
+Code adapted from http://www.packtpub.com/clojure-data-analysis-cookbook/book
 
 ## Usage
 
+$ lein run
 FIXME: write
 
 ## License
