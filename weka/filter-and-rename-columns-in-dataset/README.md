@@ -1,13 +1,8 @@
 # filter-and-rename-columns-in-dataset
 
-A Clojure library designed to ... well, that part is up to you.
+Examples from
+http://www.packtpub.com/clojure-data-analysis-cookbook/book
 
 ## Usage
 
-FIXME
-
-## License
-
-Copyright © 2014 FIXME
-
-Distributed under the Eclipse Public License, the same as Clojure.
+$ lein run
