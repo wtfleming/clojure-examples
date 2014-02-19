@@ -1,53 +1,42 @@
 (ns twitter.core
   (:gen-class)
-  (:import [twitter4j TwitterFactory Query QueryResult Tweet]
+  (:import [twitter4j TwitterFactory Query QueryResult]
            [twitter4j.auth AccessToken]))
 
 
-; Twitter4j Search returns a list of tweets
-(defn formatTweetsForOutput [tweets]
-  (map #(str (.getFromUser %) " : " (.getText %)) tweets))
-
-
-; Other calls return a list of statuses...
-(defn formatStatusesForOutput [statuses]
+(defn- formatStatusesForOutput [statuses]
   (map #(str (.getScreenName (.getUser %)) " : " (.getText %)) statuses))
 
 
-(defn getOAuthAuthorizedTwitter []
-  (def accessTokenStr "YOUR_ACCESS_TOKEN")   
-  (def accessTokenSecretStr "YOUR_ACCESS_TOKEN_SECRET")  
-  (def consumerKey "YOUR_CONSUMER_KEY")
-  (def consumerSecret "YOUR_CONSUMER SECRET")
-  
-  (def accessToken (new AccessToken accessTokenStr accessTokenSecretStr))
-  (def twitterFactory (new TwitterFactory))
-  (def twitter (.getInstance twitterFactory))
-  (.setOAuthConsumer twitter consumerKey consumerSecret)
-  (.setOAuthAccessToken twitter accessToken)
-  twitter)  
-  
+(defn- getOAuthAuthorizedTwitter []
+  (let [access-token-public "YOUR_ACCESS_TOKEN"
+        access-token-secret "YOUR_ACCESS_TOKEN_SECRET"
+        access-token (AccessToken. access-token-public access-token-secret)
+        consumer-key "YOUR_CONSUMER_KEY"
+        consumer-secret "YOUR_CONSUMER_SECRET"
+        twitter (.getInstance (TwitterFactory.))]
+    (doto twitter
+      (.setOAuthConsumer consumer-key consumer-secret)
+      (.setOAuthAccessToken access-token))
+    twitter))
 
-(defn search [queryString]
-  (def twitter (.getInstance (new TwitterFactory)))
-  (def query (new Query queryString))
-  (.getTweets (.search twitter query)))
-  
+
+(defn search [query-string]
+  (let [query (Query. query-string)]
+    (.setCount query 20)
+    (-> (getOAuthAuthorizedTwitter)
+      (.search query)
+      (.getTweets))))
 
 (defn getHomeTimeline []
-  (def twitter (getOAuthAuthorizedTwitter))
-  (.getFriendsTimeline twitter))
-
+  (-> (getOAuthAuthorizedTwitter)
+    (.timelines)
+    (.getHomeTimeline)))
 
 
 
 (defn -main []
   (def results (search "clojure"))
-  (def output (formatTweetsForOutput results))
-  (doseq [tweet output] (println tweet))
-
 ;  (def results (getHomeTimeline))
-;  (def output (formatStatusesForOutput results))
-;  (doseq [tweet output] (println tweet))
-  
-  )
+  (def output (formatStatusesForOutput results))
+  (doseq [tweet output] (println tweet)))
