@@ -3,12 +3,12 @@
   (import [org.apache.lucene.analysis.standard StandardAnalyzer]
           [org.apache.lucene.document Document Field Field$Store Field$Index]
           [org.apache.lucene.index IndexWriter IndexWriterConfig IndexReader]
-          [org.apache.lucene.queryParser QueryParser]
-          [org.apache.lucene.search Searcher IndexSearcher Query TopDocs]
+          [org.apache.lucene.queryparser.classic QueryParser]
+          [org.apache.lucene.search IndexSearcher Query TopDocs]
           [org.apache.lucene.store RAMDirectory]
           [org.apache.lucene.util Version]))
 
-(def LUCENE_VERSION (Version/LUCENE_35))
+(def LUCENE_VERSION (Version/LUCENE_4_10_1))
 
 (defn createDocument [title content]
   (let [document     (Document.)
@@ -52,7 +52,7 @@
       (.addDocument (createDocument title-1 content-1))
       (.addDocument (createDocument title-2 content-2))
       (.addDocument (createDocument title-3 content-3))
-      (.optimize)
+      (.commit)
       (.close))
     index))
 
@@ -61,6 +61,4 @@
   (let [index (createIndex)
         searcher (IndexSearcher. (IndexReader/open index))]
     (search searcher "complexity")
-    (search searcher "main")
-    (.close searcher)))
-
+    (search searcher "main")))
