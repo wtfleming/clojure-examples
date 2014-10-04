@@ -3,12 +3,8 @@
 # logs
 derby.log
 
-# eclipse conf file
-.settings
-.classpath
-.project
-.manager
-.externalToolBuilders
+# lein
+.lein-repl-history
 
 
 target/
@@ -17,12 +13,6 @@ target/
 .settings
 
 */bin
-
-# IntelliJ
-*.iml
-*.ipr
-*.iws
-.idea
 
 
 *.class
