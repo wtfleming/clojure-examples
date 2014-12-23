@@ -2,6 +2,7 @@
   (:gen-class)
   (:require
     [clj-time.core :as time]
+    [clj-time.coerce :as coerce]
     [clj-time.format :as time-format]))
 
 
@@ -50,15 +51,17 @@
       (map #(parse-or-nil % date-str) *default-formats*))))
 
 (defn -main []
+  ;; #<DateTime 1998-04-25T00:00:00.000Z>
+  (println (coerce/from-long 893462400000))
 
-  ; #<DateTime 2014-01-22T00:00:00.000Z>
+  ;; #<DateTime 2014-01-22T00:00:00.000Z>
   (println (normalize-datetime "2014-01-22"))
 
-  ; #<DateTime 2014-01-22T00:00:00.000Z>
+  ;; #<DateTime 2014-01-22T00:00:00.000Z>
   (println (normalize-datetime "2014/01/22"))
 
-  ; #<DateTime 2014-01-22T00:00:00.000Z>
+  ;; #<DateTime 2014-01-22T00:00:00.000Z>
   (println (normalize-datetime "22 Jan 2014"))
 
-  ; #<DateTime 2014-01-22T14:25:00.000Z>
+  ;; #<DateTime 2014-01-22T14:25:00.000Z>
   (println (normalize-datetime "2014-01-22 14:25")))
