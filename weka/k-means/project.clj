@@ -3,6 +3,6 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.5.1"]
-                 [nz.ac.waikato.cms.weka/weka-dev "3.7.7"]]
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [nz.ac.waikato.cms.weka/weka-dev "3.7.12"]]
   :main k-means.core)
