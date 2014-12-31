@@ -2,7 +2,7 @@
   (:use cascalog.api)
   (:require [clojure.data.csv :as csv]
             [clj-json [core :as json]]
-            [cascalog.ops :as ops]))
+            [cascalog.logic.ops :as ops]))
 
 
 (def state-abbreviation-path "data/state-abbreviation.csv")
@@ -13,8 +13,7 @@
 (defn csv-parser [line]
   (map #(.trim %) (first (csv/read-csv line))))
 
-(defn state-abbreviation-query
-  []
+(defn state-abbreviation-query []
   (let [file-tap (lfs-textline state-abbreviation-path)]
     (?<-
       (stdout)
@@ -25,8 +24,7 @@
 (defn json-parser [line]
   (map (json/parse-string line) ["full" "abbr"]))
 
-(defn state-abbreviation-json-query
-  []
+(defn state-abbreviation-json-query []
   (let [file-tap (lfs-textline state-abbreviation-json-path)]
     (?<-
       (stdout)
@@ -35,7 +33,7 @@
       (json-parser ?line :> ?state ?abbr))))
 
 
-(deffilterop starts-with? [^String s prefix] (.startsWith s prefix))
+(deffilterfn starts-with? [^String s prefix] (.startsWith s prefix))
 
 (defn state-starting-with-query
   "Output states starting with the prefix. Ie V -> Vermont, Virginia"
@@ -64,8 +62,7 @@
 
 
 
-(defn join-state-capital-query
-  []
+(defn join-state-capital-query []
   (let [cap-abbr-tap  (lfs-textline capital-abbreviation-path)
         st-abbr-tap   (lfs-textline state-abbreviation-path)]
     (?<-
@@ -80,8 +77,7 @@
 
 (defn first-letter [^String word] (first word))
 
-(defn state-first-letter-count
-  []
+(defn state-first-letter-count []
   (let [file-tap (lfs-textline state-abbreviation-path)]
     (?<-
       (stdout)
