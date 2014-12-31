@@ -16,7 +16,7 @@
 (defn state-abbreviation-query
   []
   (let [file-tap (lfs-textline state-abbreviation-path)]
-    (?<- 
+    (?<-
       (stdout)
       [?abbr ?state]
       (file-tap ?line)
@@ -47,7 +47,7 @@
       (file-tap ?line)
       (csv-parser ?line :> ?state _)
       (starts-with? ?state prefix))))
-      
+
 
 (defn count-state-starting-with-query
   "Output count of states starting with the prefix. Ie V -> 2"
@@ -90,5 +90,3 @@
       (csv-parser ?line :> ?state _)
       (first-letter ?state :> ?first-letter)
       (ops/count ?letter-count))))
-      
-
