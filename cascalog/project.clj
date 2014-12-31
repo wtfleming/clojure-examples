@@ -5,5 +5,5 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/data.csv "0.1.2"]
                  [cascalog "2.1.1"]
-                 [clj-json "0.5.3"]]
+                 [cheshire "5.4.0"]]
   :profiles { :dev {:dependencies [[org.apache.hadoop/hadoop-core "1.0.4"]]}})

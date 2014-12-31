@@ -1,7 +1,7 @@
 (ns cascalog_examples.us_state_queries
   (:use cascalog.api)
   (:require [clojure.data.csv :as csv]
-            [clj-json [core :as json]]
+            [cheshire.core :as json]
             [cascalog.logic.ops :as ops]))
 
 
