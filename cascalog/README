@@ -19,7 +19,7 @@ $ lein repl
 (use 'cascalog_examples.us_state_queries)
 
 (state-abbreviation-query)
-RESULTS 
+RESULTS
 -----------------------
 AL      Alabama
 AK      Alaska
@@ -67,7 +67,7 @@ F       1
 ...
 -----------------------
 
-(state-abbreviation-json-query) 
+(state-abbreviation-json-query)
 RESULTS
 -----------------------
 AL      Alabama
