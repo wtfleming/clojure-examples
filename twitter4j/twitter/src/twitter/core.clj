@@ -4,11 +4,10 @@
            [twitter4j.auth AccessToken]))
 
 
-(defn- formatStatusesForOutput [statuses]
+(defn- format-statuses-for-output [statuses]
   (map #(str (.getScreenName (.getUser %)) " : " (.getText %)) statuses))
 
-
-(defn- getOAuthAuthorizedTwitter []
+(defn- get-oauth-authorized-twitter []
   (let [access-token-public "YOUR_ACCESS_TOKEN"
         access-token-secret "YOUR_ACCESS_TOKEN_SECRET"
         access-token (AccessToken. access-token-public access-token-secret)
@@ -20,23 +19,21 @@
       (.setOAuthAccessToken access-token))
     twitter))
 
-
 (defn search [query-string]
   (let [query (Query. query-string)]
     (.setCount query 20)
-    (-> (getOAuthAuthorizedTwitter)
-      (.search query)
-      (.getTweets))))
+    (-> (get-oauth-authorized-twitter)
+        (.search query)
+        (.getTweets))))
 
-(defn getHomeTimeline []
-  (-> (getOAuthAuthorizedTwitter)
-    (.timelines)
-    (.getHomeTimeline)))
-
+(defn get-home-timeline []
+  (-> (get-oauth-authorized-twitter)
+      (.timelines)
+      (.getHomeTimeline)))
 
 
 (defn -main []
   (def results (search "clojure"))
-;  (def results (getHomeTimeline))
-  (def output (formatStatusesForOutput results))
+  ;;  (def results (get-home-timeline))
+  (def output (format-statuses-for-output results))
   (doseq [tweet output] (println tweet)))
