@@ -31,6 +31,16 @@
       (.timelines)
       (.getHomeTimeline)))
 
+(defn get-friends-ids
+  "Returns a vector of user ids that the specified user is friends with."
+  [screen-name]
+  (-> (getOAuthAuthorizedTwitter)
+      (.friendsFollowers)
+      (.getFriendsIDs screen-name -1)
+      (.getIDs)
+      (aclone) ; Java arrays are aliased in Clojure, ensure it won't be modified elsewhere
+      (vec)))
+
 
 (defn -main []
   (def results (search "clojure"))
