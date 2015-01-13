@@ -1,6 +1,6 @@
 (defproject twitter "1.0.0-SNAPSHOT"
-  :description "FIXME: write description"
+  :description "Examples of using twitter4j to call the twitter API"
   :dependencies [
-    [org.clojure/clojure "1.5.1"]
-    [org.twitter4j/twitter4j-core "3.0.5"]]
+    [org.clojure/clojure "1.6.0"]
+    [org.twitter4j/twitter4j-core "4.0.2"]]
   :main twitter.core)
