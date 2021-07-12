@@ -1,13 +1,14 @@
 # OpenNLP examples
 
-To run you will need to download the models from http://opennlp.sourceforge.net/models-1.5/
+To run you will need to download the models English sentence detection model opennlp-en-ud-ewt-sentence-1.0-1.9.3.bin from http://opennlp.apache.org/models.html
+
 
 ## Usage
 
-FIXME: write
+lein run
 
 ## License
 
-Copyright (C) 2012 FIXME
+Copyright (C) 2021 FIXME
 
 Distributed under the Eclipse Public License, the same as Clojure.
