@@ -1,8 +1,5 @@
 # web-compojure
 
-FIXME: write description
-
-lein deps
 
 ## Usage
 Run with either
@@ -13,6 +10,6 @@ lein ring server-headless
 
 ## License
 
-Copyright (C) 2012 FIXME
+Copyright (C) 2021 FIXME
 
 Distributed under the Eclipse Public License, the same as Clojure.
