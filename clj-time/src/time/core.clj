@@ -1,7 +1,7 @@
 (ns time.core
   (:gen-class)
   (:require
-    [clj-time.core :as time]
+    [clj-time.core :as timec]
     [clj-time.coerce :as coerce]
     [clj-time.format :as time-format]))
 
@@ -50,9 +50,9 @@
     (remove nil?
       (map #(parse-or-nil % date-str) *default-formats*))))
 
-(defn -main []
-  ;; #<DateTime 1998-04-25T00:00:00.000Z>
-  (println (coerce/from-long 893462400000))
+
+(defn normalize-datetime-examples []
+  (println "\n------ normalize-datetime-examples ------")
 
   ;; #<DateTime 2014-01-22T00:00:00.000Z>
   (println (normalize-datetime "2014-01-22"))
@@ -65,3 +65,35 @@
 
   ;; #<DateTime 2014-01-22T14:25:00.000Z>
   (println (normalize-datetime "2014-01-22 14:25")))
+
+(defn parse-time-examples []
+  (println "\n------ parse-time-examples ------")
+  (let [time-format-example (time-format/formatter "MM/dd/yy")]
+    (println "MM/dd/yy:" (time-format/parse time-format-example "03/15/21"))))
+
+(defn relative-dates-examples []
+  (println "\n------ relative-dates-examples ------")
+
+  (print "1 day from now: ")
+  (-> 1
+      timec/days
+      timec/from-now
+      println)
+
+  (print "2 days ago: ")
+  (-> 2
+      timec/days
+      timec/ago
+      println))
+
+(defn -main []
+  (println "Current time:" (timec/now))
+
+  ;; #<DateTime 1998-04-25T00:00:00.000Z>
+  (println "from-long:" (coerce/from-long 893462400000))
+
+  (parse-time-examples)
+
+  (relative-dates-examples)
+
+  (normalize-datetime-examples))

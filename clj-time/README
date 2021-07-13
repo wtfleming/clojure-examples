@@ -1,13 +1,14 @@
-# json
+# clj-time
 
-FIXME: write description
+Example of working with the clj-time library
+
 
 ## Usage
 
-FIXME: write
+lein run
 
 ## License
 
-Copyright (C) 2012 FIXME
+Copyright (C) 2021 FIXME
 
 Distributed under the Eclipse Public License, the same as Clojure.
