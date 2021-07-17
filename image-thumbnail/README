@@ -1,15 +1,17 @@
 # image-thumbnail
 
+Example of using https://github.com/coobird/thumbnailator to create a thumbnail of an image.
+
 Image from http://commons.wikimedia.org/wiki/File:Hot_Dog_Dog.jpg
 "This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported, 2.5 Generic, 2.0 Generic and 1.0 Generic license."
 
 
 ## Usage
 
-FIXME: write
+    lein run
 
 ## License
 
-Copyright (C) 2012 FIXME
+Copyright (C) 2021 Will Fleming
 
 Distributed under the Eclipse Public License, the same as Clojure.

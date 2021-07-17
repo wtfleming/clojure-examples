@@ -6,7 +6,7 @@ http://commons.apache.org/proper/commons-daemon/
 You will need to install jsvc as well
 http://commons.apache.org/proper/commons-daemon/jsvc.html
 
-On Ubuntu 14.04 it is as simple as:
+On Ubuntu it is as simple as:
 
 ```bash
 $ sudo apt-get install jsvc
@@ -51,7 +51,7 @@ tick
 
 ## License
 
-Copyright © 2015 Will Fleming
+Copyright © 2021 Will Fleming
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.

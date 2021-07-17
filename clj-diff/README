@@ -1,13 +1,16 @@
-# json
+# clj-diff
 
-FIXME: write description
+Examples of working with clj-diff.
+
+Provides diff and patch functions for Clojure sequences where (diff a b) -> x and (patch a x) -> b. Also provides edit-distance and levenshtein-distance functions for calculating the difference between two sequences.
+
 
 ## Usage
 
-FIXME: write
+    lein run
 
 ## License
 
-Copyright (C) 2012 FIXME
+Copyright (C) 2021 Will Fleming
 
 Distributed under the Eclipse Public License, the same as Clojure.

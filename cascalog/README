@@ -1,6 +1,6 @@
 # cascalog-examples
 
-Examples for using cascalog
+Examples for using Cascalog
 
 
 ## Usage
@@ -80,6 +80,6 @@ AR      Arkansas
 
 ## License
 
-Copyright © 2014 William Fleming
+Copyright © 2021 William Fleming
 
 Distributed under the Eclipse Public License, the same as Clojure.
