@@ -90,3 +90,7 @@
 
 (defn -destroy [this])
 
+;; Enable starting via java -jar command
+(defn -main [& args]
+  ;;(init args)
+  (start))
