@@ -82,8 +82,8 @@
 
 ;; Queries I run in CIDER
 ;; Ensure (setup-database) has already been called
-(quote
- (do
-   (d/q all-titles-q (get-db))
-   (d/q published-after-2017-q (get-db))
-   (d/q book-titles-by-author-q (get-db) "Michael Fogus")))
+(comment
+  (setup-database)
+  (d/q all-titles-q (get-db))
+  (d/q published-after-2017-q (get-db))
+  (d/q book-titles-by-author-q (get-db) "Michael Fogus"))
