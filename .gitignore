@@ -34,3 +34,6 @@ tramp
 # Org-mode
 .org-id-locations
 *_archive
+
+.clj-kondo
+.lsp
